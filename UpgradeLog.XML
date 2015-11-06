@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="OBSPos">
+</Property><Property Name="Solution File" Value="B:\home\projects\vs2010\OBSPos\OBSPos.sln">
+</Property><Property Name="Date" Value="Thursday, September 09, 2010">
+</Property><Property Name="Time" Value="19:09 PM">
+</Property></Properties><Event ErrorLevel="0" Project="OBSPos" Source="OBSPos\OBSPos.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="OBSPos" Source="OBSPos\OBSPos.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="OBSRepMan" Source="OBSRepMan\OBSRepMan.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="OBSRepMan" Source="OBSRepMan\OBSRepMan.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="OBSPos.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="OBSPos.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="OBSPos" Source="OBSPos\OBSPos.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="OBSRepMan" Source="OBSRepMan\OBSRepMan.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

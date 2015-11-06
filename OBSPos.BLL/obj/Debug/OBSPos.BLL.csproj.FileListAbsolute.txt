@@ -1,0 +1,7 @@
+B:\home\projects\vs2008\OBSPos\OBSPos.BLL\obj\Debug\ResolveAssemblyReference.cache
+B:\home\projects\vs2008\OBSPos\OBSPos.BLL\bin\Debug\OBSPos.BLL.dll.config
+B:\home\projects\vs2008\OBSPos\OBSPos.BLL\bin\Debug\OBSPos.BLL.dll
+B:\home\projects\vs2008\OBSPos\OBSPos.BLL\bin\Debug\OBSPos.BLL.pdb
+B:\home\projects\vs2008\OBSPos\OBSPos.BLL\bin\Debug\SubSonic.Core.dll
+B:\home\projects\vs2008\OBSPos\OBSPos.BLL\obj\Debug\OBSPos.BLL.dll
+B:\home\projects\vs2008\OBSPos\OBSPos.BLL\obj\Debug\OBSPos.BLL.pdb

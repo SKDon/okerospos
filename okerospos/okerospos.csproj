@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D68447D0-327B-47F2-9E6E-EC50846F3408}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OBS.Pos</RootNamespace>
+    <AssemblyName>okerospos</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>OBS.Pos.Program</StartupObject>
+    <ApplicationIcon>world_24.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\CategoryBLL.cs" />
+    <Compile Include="BLL\ProductBLL.cs" />
+    <Compile Include="BLL\ServicePointBLL.cs" />
+    <Compile Include="BLL\CustomerBLL.cs" />
+    <Compile Include="Enumerations\PaymentType.cs" />
+    <Compile Include="PosData.cs">
+      <DependentUpon>PosData.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PosData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PosData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Customers\frmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Customers\frmCustomer.Designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\Components\CategorySelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Products\Components\CategorySelector.Designer.cs">
+      <DependentUpon>CategorySelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\Components\ProductSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Products\Components\ProductSelector.Designer.cs">
+      <DependentUpon>ProductSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sales\frmPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sales\frmPayments.Designer.cs">
+      <DependentUpon>frmPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Security\Components\RoleAccessList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Security\Components\RoleAccessList.Designer.cs">
+      <DependentUpon>RoleAccessList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Security\frmRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Security\frmRoles.Designer.cs">
+      <DependentUpon>frmRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Shared\AppManager.cs" />
+    <Compile Include="UI\Shared\ChangeContext.cs" />
+    <Compile Include="UI\Shared\Extensions\FormExtensions.cs" />
+    <Compile Include="UI\Shared\Formatter.cs" />
+    <Compile Include="UI\Shared\frmCurrency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Shared\frmCurrency.Designer.cs">
+      <DependentUpon>frmCurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Shared\MenuManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Customers\frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\Components\CategorySelector.resx">
+      <DependentUpon>CategorySelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\Components\ProductSelector.resx">
+      <DependentUpon>ProductSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sales\frmPayments.resx">
+      <DependentUpon>frmPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Security\Components\RoleAccessList.resx">
+      <DependentUpon>RoleAccessList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Security\frmRoles.resx">
+      <DependentUpon>frmRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Shared\frmCurrency.resx">
+      <DependentUpon>frmCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\frmCategories.resx">
+      <DependentUpon>frmCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\frmProducts.resx">
+      <DependentUpon>frmProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Products\frmUOM.resx">
+      <DependentUpon>frmUOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reports\frmReportViewer.resx">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sales\frmSales.resx">
+      <DependentUpon>frmSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sales\Components\ProductCategorySelector.resx">
+      <DependentUpon>ProductCategorySelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sales\frmShifts.resx">
+      <DependentUpon>frmShifts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sales\frmTaxes.resx">
+      <DependentUpon>frmTaxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Security\frmUsers.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Shared\frmPaymentModes.resx">
+      <DependentUpon>frmPaymentModes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Stock\frmLocations.resx">
+      <DependentUpon>frmLocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Stock\frmStockCount.resx">
+      <DependentUpon>frmStockCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Stock\frmStockFreeze.resx">
+      <DependentUpon>frmStockFreeze.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Stock\frmStockRecieve.resx">
+      <DependentUpon>frmStockRecieve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Stock\frmStockRemove.resx">
+      <DependentUpon>frmStockRemove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Stock\frmStockReturn.resx">
+      <DependentUpon>frmStockReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Stock\frmStockTransfer.resx">
+      <DependentUpon>frmStockTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Suppliers\frmSuppliers.resx">
+      <DependentUpon>frmSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UI\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\frmCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Products\frmCategories.Designer.cs">
+      <DependentUpon>frmCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\frmProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Products\frmProducts.Designer.cs">
+      <DependentUpon>frmProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Products\frmUOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Products\frmUOM.Designer.cs">
+      <DependentUpon>frmUOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\frmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reports\frmReportViewer.Designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sales\frmSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sales\frmSales.Designer.cs">
+      <DependentUpon>frmSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sales\Components\ProductCategorySelector.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Sales\Components\ProductCategorySelector.Designer.cs">
+      <DependentUpon>ProductCategorySelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sales\frmShifts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sales\frmShifts.Designer.cs">
+      <DependentUpon>frmShifts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sales\frmTaxes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sales\frmTaxes.Designer.cs">
+      <DependentUpon>frmTaxes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Security\frmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Security\frmUsers.Designer.cs">
+      <DependentUpon>frmUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Shared\frmPaymentModes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Shared\frmPaymentModes.Designer.cs">
+      <DependentUpon>frmPaymentModes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Shared\SecurityContext.cs" />
+    <Compile Include="UI\Shared\SettingsHelper.cs" />
+    <Compile Include="UI\Stock\frmLocations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Stock\frmLocations.Designer.cs">
+      <DependentUpon>frmLocations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockCount.Designer.cs">
+      <DependentUpon>frmStockCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockFreeze.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockFreeze.Designer.cs">
+      <DependentUpon>frmStockFreeze.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockRecieve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockRecieve.Designer.cs">
+      <DependentUpon>frmStockRecieve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockRemove.Designer.cs">
+      <DependentUpon>frmStockRemove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockReturn.Designer.cs">
+      <DependentUpon>frmStockReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Stock\frmStockTransfer.Designer.cs">
+      <DependentUpon>frmStockTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Suppliers\frmSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Suppliers\frmSuppliers.Designer.cs">
+      <DependentUpon>frmSuppliers.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PosData.xsc">
+      <DependentUpon>PosData.xsd</DependentUpon>
+    </None>
+    <None Include="PosData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PosData.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PosData.xss">
+      <DependentUpon>PosData.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="appsettings.config" />
+    <None Include="Resources\lock_24.png" />
+    <None Include="Resources\clock_24.png" />
+    <None Include="Resources\1day.png" />
+    <None Include="Resources\1downarrow.png" />
+    <None Include="Resources\1downarrow22.png" />
+    <None Include="Resources\1leftarrow.png" />
+    <None Include="Resources\1rightarrow.png" />
+    <None Include="Resources\1uparrow.png" />
+    <None Include="Resources\1uparrow22.png" />
+    <None Include="Resources\2downarrow.png" />
+    <None Include="Resources\2leftarrow.png" />
+    <None Include="Resources\2rightarrow.png" />
+    <None Include="Resources\2uparrow.png" />
+    <None Include="Resources\3uparrow.png" />
+    <None Include="Resources\abacus_24_hot.png" />
+    <None Include="Resources\abacus24.png" />
+    <None Include="Resources\apply.png" />
+    <None Include="Resources\appointment.png" />
+    <None Include="Resources\ark2.png" />
+    <None Include="Resources\ark216.png" />
+    <None Include="Resources\atlantikdesigner.png" />
+    <None Include="Resources\atlantikdesignersmall.png" />
+    <None Include="Resources\barcode.png" />
+    <None Include="Resources\bookmark.png" />
+    <None Include="Resources\btn0.png" />
+    <None Include="Resources\btn1.png" />
+    <None Include="Resources\btn2.png" />
+    <None Include="Resources\btn2a.png" />
+    <None Include="Resources\btn3.png" />
+    <None Include="Resources\btn3a.png" />
+    <None Include="Resources\btn4.png" />
+    <None Include="Resources\btn4a.png" />
+    <None Include="Resources\btn5.png" />
+    <None Include="Resources\btn5a.png" />
+    <None Include="Resources\btn6.png" />
+    <None Include="Resources\btn6a.png" />
+    <None Include="Resources\btn7.png" />
+    <None Include="Resources\btn7a.png" />
+    <None Include="Resources\btn8.png" />
+    <None Include="Resources\btn8a.png" />
+    <None Include="Resources\btn9.png" />
+    <None Include="Resources\btn9a.png" />
+    <None Include="Resources\btnback.png" />
+    <None Include="Resources\btnce.png" />
+    <None Include="Resources\btndiv.png" />
+    <None Include="Resources\btndot.png" />
+    <None Include="Resources\btnequals.png" />
+    <None Include="Resources\btnminus.png" />
+    <None Include="Resources\btnmult.png" />
+    <None Include="Resources\btnplus.png" />
+    <None Include="Resources\button_cancel.png" />
+    <None Include="Resources\button_ok.png" />
+    <None Include="Resources\bytea.png" />
+    <None Include="Resources\cakes3d.png" />
+    <None Include="Resources\cash.png" />
+    <None Include="Resources\clipart.png" />
+    <None Include="Resources\color_line.png" />
+    <None Include="Resources\color_line16.png" />
+    <None Include="Resources\colorize.png" />
+    <None Include="Resources\contents.png" />
+    <None Include="Resources\cut_24.png" />
+    <None Include="Resources\date.png" />
+    <None Include="Resources\desktop.png" />
+    <None Include="Resources\desktop22.png" />
+    <None Include="Resources\display.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\edit_group.png" />
+    <None Include="Resources\editcut.png" />
+    <None Include="Resources\editdelete.png" />
+    <None Include="Resources\editnew.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\false.png" />
+    <None Include="Resources\favicon.png" />
+    <None Include="Resources\fileclose.png" />
+    <None Include="Resources\fileopen.png" />
+    <None Include="Resources\fileprint.png" />
+    <None Include="Resources\filesave.png" />
+    <None Include="Resources\folder_yellow.png" />
+    <None Include="Resources\gohome.png" />
+    <None Include="Resources\greenled.png" />
+    <None Include="Resources\inbox.png" />
+    <None Include="Resources\kdmconfig.png" />
+    <None Include="Resources\kdmconfig32.png" />
+    <None Include="Resources\knotes.png" />
+    <None Include="Resources\kontact.png" />
+    <None Include="Resources\kuser.png" />
+    <None Include="Resources\launch.png" />
+    <None Include="Resources\locationbar_erase.png" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\menu-left.png" />
+    <None Include="Resources\menu-right.png" />
+    <None Include="Resources\mime.png" />
+    <None Include="Resources\mime2.png" />
+    <None Include="Resources\mime3.png" />
+    <None Include="Resources\mycomputer.png" />
+    <None Include="Resources\null.png" />
+    <None Include="Resources\package.png" />
+    <None Include="Resources\package_settings.png" />
+    <None Include="Resources\package_toys.png" />
+    <None Include="Resources\password.png" />
+    <None Include="Resources\poweredby.png" />
+    <None Include="Resources\redo16.png" />
+    <None Include="Resources\reload.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\search22.png" />
+    <None Include="Resources\softlogik.png" />
+    <None Include="Resources\sort_incr.png" />
+    <None Include="Resources\task_edit.png" />
+    <None Include="Resources\true.png" />
+    <None Include="Resources\unsortedList.png" />
+    <None Include="Resources\vcard.png" />
+    <None Include="Resources\viewmag.png" />
+    <None Include="Resources\viewmag-.png" />
+    <None Include="Resources\viewmag+.png" />
+    <None Include="Resources\yast_group_add.png" />
+    <None Include="Resources\yast_printer.png" />
+    <None Include="Resources\yast_security.png" />
+    <None Include="Resources\yast_sysadmin.png" />
+    <Content Include="db\obs_pos.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Security\Templates\AdministratorAccess.xml" />
+    <Content Include="world_24.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OBSRepMan\OBSRepMan.csproj">
+      <Project>{6B2E0F2F-A378-44F3-A9F1-A43423E3D976}</Project>
+      <Name>OBSRepMan</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+    <Folder Include="Reports\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
